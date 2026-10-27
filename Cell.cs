@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Schema;
+﻿// Name: Liam Lidder
+// Date: 8/7/2026
+// Assignment: Final Project
+// Description: Represents a singular cell of the board, with properties such as isCleared and isFlagged representing
+// the cell's state.
+
+using System;
 
 namespace Minesweeper
 {
     public class Cell
     {
-        public Cell(bool isEmpty = false, int faceNumber = 0, bool hasMine = false, bool Cleared = false, bool Flagged = false)
+        public Cell(int faceNumber = 0, bool hasMine = false, bool Cleared = false, bool Flagged = false)
         {
             FaceNumber = faceNumber;
             HasMine = hasMine;
@@ -18,16 +18,31 @@ namespace Minesweeper
             isFlagged = Flagged;
         }
 
-        public int FaceNumber { get; set; }
+        int faceNumber { get; set; }
 
         public bool HasMine { get; set; }
 
         bool isCleared;
         bool isFlagged;
 
-        // used for special boards
-        // cell is unusable
-        bool isEmpty;
+        public int FaceNumber
+        {
+            get
+            {
+                return faceNumber;
+            }
+            set
+            {
+                if (value >= 0 && value <= 8)
+                {
+                    faceNumber = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Cell's FaceNumber value must be within 0 and 8.");
+                }
+            }
+        }
 
         public bool IsCleared
         {

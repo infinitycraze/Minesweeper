@@ -118,61 +118,91 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="newsweeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newsweeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="smiley" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\smiley.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clearsweeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clearsweeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="falsemine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\falsemine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flagsweeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flagsweeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hitmine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hitmine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sweeper1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sweeper1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sweeper2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sweeper2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sweeper3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sweeper3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sweeper4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sweeper4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sweeper5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sweeper5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sweeper6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sweeper6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sweeper7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sweeper7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sweeper2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweeper2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sweeper4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweeper4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clearsweeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clearsweeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sweeper8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sweeper8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sweeper7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweeper7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sweeper3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweeper3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smiley_pressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smiley_pressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gasp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gasp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="glasses" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\glasses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="smileypressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smileypressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newsweeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newsweeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hitmine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hitmine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="falsemine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\falsemine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sweeper1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweeper1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flagsweeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flagsweeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sweeper5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweeper5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="segmentdisplay9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segmentdisplay9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

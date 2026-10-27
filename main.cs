@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// Name: Liam Lidder
+// Date: 8/7/2026
+// Assignment: Final Project
+// Description: The main entry point for the game. Nothing added here.
+
+using System;
 using System.Windows.Forms;
 
 namespace Minesweeper
@@ -16,9 +17,8 @@ namespace Minesweeper
         [STAThread]
         static void Main()
         {   
-            // Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MinesweeperBoard());
+            Application.Run(new MinesweeperGame());
         }
     }
 }

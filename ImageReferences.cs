@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Minesweeper
 {
@@ -30,5 +25,23 @@ namespace Minesweeper
         public static readonly Image Mine = Properties.Resources.mine;
         public static readonly Image FalseFlag = Properties.Resources.falsemine;
 
+        // smiley face states
+        public static readonly Image Smiley = Properties.Resources.smiley;
+        public static readonly Image SmileyPressed = Properties.Resources.smiley_pressed;
+        public static readonly Image Dead = Properties.Resources.dead;
+        public static readonly Image Gasp = Properties.Resources.gasp;
+        public static readonly Image Win = Properties.Resources.win;
+
+        // seven segment display images
+        public static readonly Image SegmentDisplay0 = Properties.Resources.segmentdisplay0;
+        public static readonly Image SegmentDisplay1 = Properties.Resources.segmentdisplay1;
+        public static readonly Image SegmentDisplay2 = Properties.Resources.segmentdisplay2;
+        public static readonly Image SegmentDisplay3 = Properties.Resources.segmentdisplay3;
+        public static readonly Image SegmentDisplay4 = Properties.Resources.segmentdisplay4;
+        public static readonly Image SegmentDisplay5 = Properties.Resources.segmentdisplay5;
+        public static readonly Image SegmentDisplay6 = Properties.Resources.segmentdisplay6;
+        public static readonly Image SegmentDisplay7 = Properties.Resources.segmentdisplay7;
+        public static readonly Image SegmentDisplay8 = Properties.Resources.segmentdisplay8;
+        public static readonly Image SegmentDisplay9 = Properties.Resources.segmentdisplay9;
     }
 }

@@ -113,16 +113,6 @@ namespace Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap glasses {
-            get {
-                object obj = ResourceManager.GetObject("glasses", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap hitmine {
             get {
                 object obj = ResourceManager.GetObject("hitmine", resourceCulture);
@@ -153,6 +143,106 @@ namespace Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay0 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay1 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay2 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay3 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay4 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay5 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay6 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay7 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay8 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap segmentdisplay9 {
+            get {
+                object obj = ResourceManager.GetObject("segmentdisplay9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap smiley {
             get {
                 object obj = ResourceManager.GetObject("smiley", resourceCulture);
@@ -163,9 +253,9 @@ namespace Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap smileypressed {
+        internal static System.Drawing.Bitmap smiley_pressed {
             get {
-                object obj = ResourceManager.GetObject("smileypressed", resourceCulture);
+                object obj = ResourceManager.GetObject("smiley_pressed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +336,16 @@ namespace Minesweeper.Properties {
         internal static System.Drawing.Bitmap sweeper8 {
             get {
                 object obj = ResourceManager.GetObject("sweeper8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap win {
+            get {
+                object obj = ResourceManager.GetObject("win", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

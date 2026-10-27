@@ -1,0 +1,10 @@
+C:\Users\liaml\Downloads\Minesweeper\bin\Release\Minesweeper.exe.config
+C:\Users\liaml\Downloads\Minesweeper\bin\Release\Minesweeper.exe
+C:\Users\liaml\Downloads\Minesweeper\bin\Release\Minesweeper.pdb
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.csproj.AssemblyReference.cache
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.MinesweeperGame.resources
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.Properties.Resources.resources
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.csproj.GenerateResource.cache
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.csproj.CoreCompileInputs.cache
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.exe
+C:\Users\liaml\Downloads\Minesweeper\obj\Release\Minesweeper.pdb

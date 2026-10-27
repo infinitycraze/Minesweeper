@@ -1,19 +1,23 @@
-﻿using System;
-using System.CodeDom;
+﻿// Name: Liam Lidder
+// Date: 8/7/2026
+// Assignment: Final Project
+// Description: Creates a grid of Cells and populates them with mines, alongside labeling cells according
+// to the number of nearby mines surrounding them. Has mathods corresponding to action that the user can 
+// to the board, such as clearing and flagging cells.
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Dynamic;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Minesweeper
 {
     public class Board
     {
+        // can only be altered from within the class
+        public static int GameID { get; private set; } = 0;
+
+        public static int GamesWon { get; private set; } = 0;
+        public static int GamesLost { get; private set; } = 0;
+
         // board initializer; generated upon starting new game
         public Board(int dimx, int dimy, int numberOfMines)
         {
@@ -28,56 +32,41 @@ namespace Minesweeper
                 }
             }
 
-            numMines = numberOfMines;
+            // upon the start of the game, there are always 9 empty cells, so nine is cubtracted from the total number of cells
+            if (numberOfMines > dimx * dimy - 9)
+            {
+                throw new ArgumentException("numberOfMines must be less than the amount of cells on the board not counting the initial nine cells.");
+            }
+
+            NumMines = numberOfMines;
+            ++GameID;
         }
 
         // stores all of the game data in an array
         public Cell[,] Cells;
 
-        bool gameStarted = false;
-        public bool GameStarted
-        {
-            get
-            {
-                return gameStarted;
-            }
-        }
+        // Properties:
 
-        bool gameOver = false;
-        public bool GameOver
-        {
-            get
-            {
-                return gameOver;
-            }
-        }
+        public bool GameStarted { get; private set; } = false;
+
+        public bool GameOver { get; private set; } = false;
 
         // used to prevent multiple functions firing at once, possibly causing errors
-        private bool isLoading = false;
-        public bool IsLoading
-        {
-            get
-            {
-                return isLoading;
-            }
-        }
+        public bool IsLoading { get; private set; } = false;
 
-        private int numMines;
-        public int NumMines
-        {
-            get
-            {
-                return NumMines;
-            }
-        }
+        public int NumMines { get; private set; }
+
+        public int FlagCount { get; private set; } = 0;
 
         public void StartGame(int posx, int posy)
         {
-            isLoading = true;
+            IsLoading = true;
 
+            // random object to choose the mines
             Random randomObj = new Random();
 
             // clicked cell and its surroundings
+            // the user can never click on a mine on first click
             var clearCells = GetSurroundingCells(posx, posy);
             clearCells.Add(Cells[posy, posx]);
 
@@ -93,14 +82,14 @@ namespace Minesweeper
             }
 
             // if # of mines is impossible, remove mines
-            if (numMines > availableCells.Count)
+            if (NumMines > availableCells.Count)
             {
-                numMines = availableCells.Count;
+                NumMines = availableCells.Count;
             }
 
             // place all of the mines except where the first click and its surrounding cells are.
 
-            for (int minesPlaced = 0; minesPlaced < numMines; minesPlaced++)
+            for (int minesPlaced = 0; minesPlaced < NumMines; minesPlaced++)
             {
                 int selectedIndex = randomObj.Next(availableCells.Count);
 
@@ -131,19 +120,22 @@ namespace Minesweeper
                 }
             }
 
-            isLoading = false;
-            gameStarted = true;
-        }   
+            IsLoading = false;
+            GameStarted = true;
+        }
 
+        // returns a list of cells adjacent to a position, including diagonally
         public List<Cell> GetSurroundingCells(int posx, int posy)
         {
             var surroundingCells = new List<Cell>();
 
-            // gets all cells within 1 of the position in either x or y
             for (int y = -1; y <= 1; y++)
             {
                 for (int x = -1; x <= 1; x++)
                 {
+                    // skip the given cell
+                    if (x == 0 && y == 0) { continue; }
+
                     try
                     {
                         surroundingCells.Add(Cells[y + posy, x + posx]);
@@ -155,6 +147,8 @@ namespace Minesweeper
 
             return surroundingCells;
         }
+
+        // a helper function which allows for recursion for the 0 auto-clear and the ability to clear the surrounding cells by clicking on a number
         private bool ClearCellHelper(int posx, int posy, bool isFirst = false)
         {
             Cell currentCell;
@@ -176,7 +170,8 @@ namespace Minesweeper
 
                 // if the cell is cleared, then it can clear neighboring cells
                 // isFirst is a precaution to prevent infinite recursion
-                if (isFirst) {
+                if (isFirst)
+                {
                     int flagCount = 0;
 
                     foreach (Cell surroundingCell in GetSurroundingCells(posx, posy))
@@ -210,7 +205,7 @@ namespace Minesweeper
 
                 return hitMine;
             }
-
+            
             if (currentCell.IsFlagged)
             {
                 return false;
@@ -248,25 +243,30 @@ namespace Minesweeper
         public bool ClearCell(int posx, int posy)
         {
 
-            if (gameOver) { return true; }
-            if (isLoading) { return false; }
+            if (GameOver) { return true; }
+            if (IsLoading) { return false; }
 
-            if (gameStarted == false) { StartGame(posx, posy); }
+            if (GameStarted == false) { StartGame(posx, posy); }
 
-            isLoading = true;
+            IsLoading = true;
 
             bool hitMine = ClearCellHelper(posx, posy, true);
-            if (hitMine) { gameOver = true; }
 
-            isLoading = false;
+            if (hitMine) 
+            {
+                ++GamesLost;
+                GameOver = true;
+            }
+
+            IsLoading = false;
 
             return hitMine;
         }
 
         public void FlagCell(int posx, int posy)
         {
-            if (isLoading || gameOver || !gameStarted) { return; }
-            isLoading = true;
+            if (IsLoading || GameOver || !GameStarted) { return; }
+            IsLoading = true;
 
             Cell currentCell;
 
@@ -274,209 +274,50 @@ namespace Minesweeper
 
             if (currentCell.IsCleared)
             {
-                isLoading = false;
+                IsLoading = false;
                 return;
             }
 
             // flagging toggles the state of the flag
-            currentCell.IsFlagged = !currentCell.IsFlagged;
-            isLoading = false;
+            // update FlagCount
+            if (currentCell.IsFlagged)
+            {
+                currentCell.IsFlagged = false;
+                --FlagCount;
+            }
+            else
+            {
+                currentCell.IsFlagged = true;
+                ++FlagCount;
+            }
+
+            IsLoading = false;
         }
 
-        // creates a representation of the solved Minesweeper board as a string printed to the console
-        // code is now useless after switching to a Forms app; ctrl+k+u to uncomment
+        // returns true if the game is over and the user cleared all cells without hitting a mine
+        public bool CheckWin()
+        {
+            // prevents the win from being checked twice
+            if (GameOver) { return false; }
 
-        //public void RevealBoard()
-        //{
-        //    // referece dictionary for all of the numbers' corresponding colors
-        //    var numberColoring = new Dictionary<int, ConsoleColor>();
-        //    numberColoring.Add(0, ConsoleColor.Gray);
-        //    numberColoring.Add(1, ConsoleColor.Blue);
-        //    numberColoring.Add(2, ConsoleColor.DarkGreen);
-        //    numberColoring.Add(3, ConsoleColor.Red);
-        //    numberColoring.Add(4, ConsoleColor.DarkMagenta);
-        //    numberColoring.Add(5, ConsoleColor.DarkRed);
-        //    numberColoring.Add(6, ConsoleColor.Cyan);
-        //    numberColoring.Add(7, ConsoleColor.Black);
-        //    numberColoring.Add(8, ConsoleColor.DarkGray);
+            foreach (Cell cell in this.Cells)
+            {
+                // all cells without mines must be cleared, all cells with mines must not, else return
+                if (cell.IsCleared == cell.HasMine)
+                {
+                    return false;
+                }
+            }
 
-        //    const ConsoleColor defaultBG = ConsoleColor.Black;
-        //    const ConsoleColor defaultFG = ConsoleColor.White;
+            ++GamesWon;
+            GameOver = true;
 
-        //    const ConsoleColor mineColor = ConsoleColor.Black;
-        //    const ConsoleColor mineBG = ConsoleColor.Gray;
+            return true;
+        }
 
-        //    const ConsoleColor lineColor = ConsoleColor.DarkGray;
-        //    const ConsoleColor backgroundColor = ConsoleColor.White;
-
-        //    const char horizontalSeparator = '-';
-        //    const char verticalSeparator = '|';
-        //    const char mineSymbol = 'X';
-        //    const bool includeWhiteSpace = true;
-
-        //    int lineLength = Cells.GetLength(1) * (includeWhiteSpace ? 4 : 2) + 1;
-
-        //    Console.BackgroundColor = backgroundColor;
-        //    Console.ForegroundColor = lineColor;
-
-        //    // creates a line the width of the display; the top part of the board
-        //    Console.Write(RepeatString(horizontalSeparator.ToString(), lineLength));
-
-        //    // backing the background the default so it doesn't streak on the newline
-        //    Console.BackgroundColor = defaultBG;
-        //    Console.WriteLine();
-        //    Console.BackgroundColor = backgroundColor;
-
-        //    for (int y = 0; y < Cells.GetLength(0); y++)
-        //    {
-        //        for (int x = 0; x < Cells.GetLength(1); x++)
-        //        {
-        //            Console.Write(verticalSeparator);
-
-        //            var currentCell = Cells[y, x];
-
-        //            // finding the corresponding color for the numbers; mines are black
-        //            Console.ForegroundColor = currentCell.HasMine ? mineColor : numberColoring[currentCell.FaceNumber];
-
-        //            // make the cell the mine symbol if it has a mine, else its number
-        //            string symbol = currentCell.HasMine ? mineSymbol.ToString() : currentCell.FaceNumber.ToString();
-
-        //            // "0" is represented as a blank space
-        //            symbol = symbol == "0" ? " " : symbol;
-        //            // add whitespace
-        //            symbol = includeWhiteSpace ? " " + symbol + " " : symbol;
-        //            // merge with separator
-
-        //            if (currentCell.HasMine)
-        //            {
-        //                Console.BackgroundColor = mineBG;
-        //            }
-
-        //            Console.Write((symbol == "0" ? " " : symbol));
-
-        //            Console.BackgroundColor = backgroundColor;
-        //            Console.ForegroundColor = lineColor;
-        //        }
-
-        //        Console.Write(verticalSeparator);
-
-        //        Console.BackgroundColor = defaultBG;
-        //        Console.WriteLine();
-        //        Console.BackgroundColor = backgroundColor;
-
-        //        Console.Write(RepeatString(horizontalSeparator.ToString(), lineLength));
-
-        //        Console.BackgroundColor = defaultBG;
-        //        Console.WriteLine();
-        //        Console.BackgroundColor = backgroundColor;
-        //    }
-
-        //    Console.BackgroundColor = defaultBG;
-        //    Console.ForegroundColor = defaultFG;
-        //}
-
-        //// prints a representation of the current game board to the console
-        //public void PrintBoard()
-        //{
-        //    // referece dictionary for all of the numbers' corresponding colors
-        //    var numberColoring = new Dictionary<int, ConsoleColor>();
-        //    numberColoring.Add(0, ConsoleColor.Gray);
-        //    numberColoring.Add(1, ConsoleColor.Blue);
-        //    numberColoring.Add(2, ConsoleColor.DarkGreen);
-        //    numberColoring.Add(3, ConsoleColor.Red);
-        //    numberColoring.Add(4, ConsoleColor.DarkMagenta);
-        //    numberColoring.Add(5, ConsoleColor.DarkRed);
-        //    numberColoring.Add(6, ConsoleColor.Cyan);
-        //    numberColoring.Add(7, ConsoleColor.Black);
-        //    numberColoring.Add(8, ConsoleColor.DarkGray);
-
-        //    const ConsoleColor defaultBG = ConsoleColor.Black;
-        //    const ConsoleColor defaultFG = ConsoleColor.White;
-
-        //    const ConsoleColor unclearedColor = ConsoleColor.Gray;
-        //    const ConsoleColor flagColor = ConsoleColor.Red;
-        //    const ConsoleColor lineColor = ConsoleColor.DarkGray;
-        //    const ConsoleColor backgroundColor = ConsoleColor.White;
-
-        //    const char horizontalSeparator = '-';
-        //    const char verticalSeparator = '|';
-        //    const char flagSymbol = 'F';
-        //    const bool includeWhiteSpace = true;
-
-        //    int lineLength = Cells.GetLength(1) * (includeWhiteSpace ? 4 : 2) + 1;
-
-        //    Console.BackgroundColor = backgroundColor;
-        //    Console.ForegroundColor = lineColor;
-
-        //    // creates a line the width of the display; the top part of the board
-        //    Console.Write(RepeatString(horizontalSeparator.ToString(), lineLength));
-
-        //    // backing the background the default so it doesn't streak on the newline
-        //    Console.BackgroundColor = defaultBG;
-        //    Console.WriteLine();
-        //    Console.BackgroundColor = backgroundColor;
-
-        //    for (int y = 0; y < Cells.GetLength(0); y++)
-        //    {
-        //        for (int x = 0; x < Cells.GetLength(1); x++)
-        //        {
-        //            Console.Write(verticalSeparator);
-
-        //            var currentCell = Cells[y, x];
-
-        //            // finding the corresponding color for the numbers; mines are black
-        //            Console.ForegroundColor = currentCell.IsCleared ? numberColoring[currentCell.FaceNumber] : flagColor;
-
-        //            // make the cell the mine symbol if it has a mine, else its number
-        //            string symbol = currentCell.IsCleared ? currentCell.FaceNumber.ToString() : (currentCell.IsFlagged ? flagSymbol.ToString() : " ");
-
-        //            // "0" is represented as a blank space
-        //            symbol = symbol == "0" ? " " : symbol;
-        //            // add whitespace
-        //            symbol = includeWhiteSpace ? " " + symbol + " " : symbol;
-        //            // merge with separator
-
-        //            if (!currentCell.IsCleared)
-        //            {
-        //                Console.BackgroundColor = unclearedColor;
-        //            }
-
-        //            Console.Write((symbol == "0" ? " " : symbol));
-
-        //            Console.BackgroundColor = backgroundColor;
-        //            Console.ForegroundColor = lineColor;
-        //        }
-
-        //        Console.Write(verticalSeparator);
-
-        //        // backing the background the default so it doesn't streak on the newline
-        //        Console.BackgroundColor = defaultBG;
-        //        Console.WriteLine();
-        //        Console.BackgroundColor = backgroundColor;
-
-        //        Console.Write(RepeatString(horizontalSeparator.ToString(), lineLength));
-
-        //        // backing the background the default so it doesn't streak on the newline
-        //        Console.BackgroundColor = defaultBG;
-        //        Console.WriteLine();
-        //        Console.BackgroundColor = backgroundColor;
-        //    }
-
-        //    Console.BackgroundColor = defaultBG;
-        //    Console.ForegroundColor = defaultFG;
-        //}
-
-        //private string RepeatString(string s, int n)
-        //{
-        //    string result = s;
-
-        //    // add s to itself n-1 times
-        //    for (int i = 1; i < n; i++)
-        //    {
-        //        result += s;
-        //    }
-
-        //    return result;
-        //}
+        public static int CalculateGamesPlayed()
+        {
+            return GamesWon + GamesLost;
+        }
     }
 }
